@@ -231,12 +231,6 @@ export interface Client {
     /** 获取当前房间内远端用户音视频 mute 状态列表。 */
     getRemoteMutedState(): RemoteMutedState[];
 
-    /**
-     * 设置是否默认接收远端流。该方法可在 join() 调用前使用，若在进房后调用，会接收不到后续进房的远端用户音视频流。
-     * @param muted 是否默认不接收远端流: true true 默认不接收任何远端流。false 默认接收所有远端流。（默认）
-     */
-    setDefaultMuteRemoteStreams(muted: boolean): void;
-
     /** 获取当前网络传输状况统计数据, 该方法需要在 `publish()` 后调用 */
     getTransportStats(): Promise<TransportStats>;
 
@@ -801,8 +795,16 @@ export interface CheckResult {
         isWebRTCSupported: boolean;
         /** 当前浏览器是否支持获取媒体设备及媒体流 */
         isMediaDevicesSupported: boolean;
-        /** 当前浏览器是否支持 H264 编码 */
-        isH264Supported: boolean;
+        /** 当前浏览器是否支持 H264 编码 4.9以下 */
+        isH264Supported?: boolean;
+        /** 当前浏览器上行是否支持 H264 编码 4.9以上 */
+        isH264EncodeSupported?: boolean;
+        /** 当前浏览器上行是否支持 Vp8 编码 4.9以上 */
+        isVp8EncodeSupported?: boolean;
+        /** 当前浏览器下行是否支持 H264 编码 4.9以上 */
+        isH264DecodeSupported?: boolean;
+        /** 当前浏览器下行是否支持 Vp8 编码 4.9以上 */
+        isVp8DecodeSupported?: boolean;
     };
 }
 
