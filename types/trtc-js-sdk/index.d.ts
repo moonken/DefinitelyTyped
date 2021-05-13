@@ -1,4 +1,4 @@
-// Type definitions for trtc-js-sdk 4.8
+// Type definitions for trtc-js-sdk 4.10
 // Project: https://github.com/tencentyun/TRTCSDK#readme
 // Definitions by: yokots <https://github.com/yokots>
 //                 Wang KaiLing <https://github.com/wkl007>
